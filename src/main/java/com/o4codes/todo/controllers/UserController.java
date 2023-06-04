@@ -18,23 +18,23 @@ public class UserController {
 
     @GetMapping("")
     public ResponseEntity<List<User>> getAllUsers() {
-        return new ResponseEntity<List<User>>(userService.getUsers(), HttpStatus.OK);
+        return new ResponseEntity<>(userService.getUsers(), HttpStatus.OK);
     }
 
     @PostMapping("")
     public ResponseEntity<User> createUser(@RequestBody User user){
         User userCreated =  userService.createUser(user);
-        return new ResponseEntity<User>(userCreated, HttpStatus.CREATED);
+        return new ResponseEntity<>(userCreated, HttpStatus.CREATED);
     }
 
     @GetMapping("/{id}")
     public ResponseEntity<User> getUserById(@PathVariable("id") Long id){
-        return new ResponseEntity<User>(userService.getUserById(id), HttpStatus.OK);
+        return new ResponseEntity<>(userService.getUserById(id), HttpStatus.OK);
     }
 
     @PutMapping("/{id}")
     public ResponseEntity<User> updateUser(@PathVariable("id") Long id, @RequestBody User user){
-        return new ResponseEntity<User>(userService.updateUser(id, user), HttpStatus.OK);
+        return new ResponseEntity<>(userService.updateUser(id, user), HttpStatus.OK);
     }
 
     @DeleteMapping("/{id}")
